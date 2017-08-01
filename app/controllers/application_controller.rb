@@ -1,0 +1,31 @@
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  
+  # 8.5
+  include SessionsHelper
+  
+  private
+  
+  def require_user_logged_in
+    unless logged_in?
+      redirect_to login_url
+    end
+  end
+  
+  # 検索結果resultsの1レコード分のオブジェクトの中身を読み込む
+  # read ( result )
+  def read(result)
+    code = result.code
+    name = result['itemName']
+    url = result.url
+    image_url = result['mediumImageUrls'].first['imageUrl'].gsub('?_ex=128x128', '')
+    
+    return {
+      code: code,
+      name: name,
+      url: url,
+      image_url: image_url,
+    }
+  end
+  
+end
