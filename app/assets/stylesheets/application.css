@@ -64,7 +64,7 @@ footer {
 p.item-title {
   /* 文の行数を２行に保ち、最後に ... を追加するスタイル */
   display: -webkit-box;
-  -webkit-box-origin: vertical;
+  -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; /* 指定した行まで表示する */
   overflow: hidden;
 }
