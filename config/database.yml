@@ -60,4 +60,3 @@ production:
   database: message-board_production
   username: message-board
   password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
-# End of Editing (2017/03/03) >>
