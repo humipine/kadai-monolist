@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  
+  get 'rankings/want', to: 'rankings#want'
+  get 'rankings/have', to: 'rankings#have'
   
   # 7.2 Router
   get 'signup', to: 'users#new'
@@ -13,7 +14,5 @@ Rails.application.routes.draw do
   
   resources :items, only: [:show, :new]
   resources :ownerships, only: [:create, :destroy]
-  resources :account_activations, only: [:edit]
-  resources :password_resets, only: [:new, :create, :edit, :update]
-  # new_password_reset_path これが、パス
+  
 end

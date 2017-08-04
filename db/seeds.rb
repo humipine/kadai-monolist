@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "csv"
+
+CSV.foreach('db/ownerships_data_to_register.csv') do |row|
+  p row[0]
+  Ownership.create(:type => row[0], :user_id => row[1], :item_id => row[2])
+  
+end
